@@ -1,6 +1,6 @@
 import { db } from '../firebaseConfig.js';
 import { 
-    getDocs, collection, deleteDoc,doc
+    getDocs, collection, deleteDoc,doc, updateDoc
     
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
@@ -22,6 +22,19 @@ async function deleteMovie(id) {
     }
   }
 
+  // Function for update
+  async function updateMovieStatus(id, watchedStatus) {
+    try {
+        await updateDoc(doc(db, "movies",id ),{
+            watched : watchedStatus
+        })
+        .then (() => {
+            console.log (" updated watch status successfully");
+        });
+    } catch (error) {
+        
+    }
+  }
 //function for form
     const formSection = document.querySelector("#form");
     const movieSection = document.querySelector("#movieList");
@@ -86,11 +99,30 @@ function createMovieForm(document, docid, movie){
           console.log(`ERROR: ${error}`);
         }
       });
+
+      // Watched status button
+      const watchedButton = document.createElement("input");
+      watchedButton.setAttribute("type", "button");
+    //deleteButton.setAttribute("id", "submitFormBtn");
+    watchedButton.setAttribute("docid", docid);
+    if (movie.watched == true )
+        watchedButton.value = "Watched ";
+    else
+        watchedButton.value = "Not Watched ";
+      
+    watchedButton.addEventListener("click", () => {
+        try {
+          console.log("updating wached status of  docid="+docid);
+          updateMovieStatus(docid, !movie.watched);
+        } catch (error) {
+          console.log(`ERROR: ${error}`);
+        }
+      });
     formElem.append(titleElem);
     formElem.append(genreElem);
     formElem.append(releaseDateElem);
     formElem.append(deleteButton);
-  
+    formElem.append(watchedButton);
     formSection.append(formElem);
   }
   
