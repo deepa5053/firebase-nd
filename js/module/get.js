@@ -94,18 +94,6 @@ function createMovieForm(document, docid, movie){
     formSection.append(formElem);
   }
   
-  function successConfirmation(title) {
-    confirmationSection.innerHTML = "";
-    formSection.style.display = "none";
-    confirmationSection.style.display = "block";
-    const titleElem = document.createElement("p");
-    titleElem.setAttribute("id", "confirm-msg");
-    titleElem.innerText =
-      title.charAt(0).toUpperCase() + title.substring(1) + " Added Successfully";
   
-  
-    confirmationSection.append(titleElem);
-    // successSection.append(backButtonElem);
-}
 
 export {getMovielist, createMovieForm};
