@@ -77,7 +77,7 @@ function createMovieForm(document, docid, movie) {
   const deleteButton = document.createElement("input");
   deleteButton.setAttribute("type", "button");
   deleteButton.setAttribute("class", "btn");
-  
+
   deleteButton.setAttribute("docid", docid);
   deleteButton.value = "Delete";
 
@@ -85,6 +85,12 @@ function createMovieForm(document, docid, movie) {
     try {
       console.log("Deleting docid=" + docid);
       deleteMovie(docid);
+      // Remove all the elements of this form
+      titleElem.remove();
+      genreElem.remove();
+      releaseDateElem.remove();
+      watchedButton.remove();
+      deleteButton.remove();
     } catch (error) {
       console.log(`ERROR: ${error}`);
     }
@@ -102,6 +108,11 @@ function createMovieForm(document, docid, movie) {
     try {
       console.log("updating wached status of  docid=" + docid);
       updateMovieStatus(docid, !movie.watched);
+      movie.watched = ! movie.watched;
+      if (movie.watched == true) 
+        watchedButton.value = "Watched ";
+      else 
+        watchedButton.value = "Not Watched ";
     } catch (error) {
       console.log(`ERROR: ${error}`);
     }
