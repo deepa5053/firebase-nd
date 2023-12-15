@@ -4,6 +4,7 @@ import {
   collection,
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
+
 // add movie function
 async function addMovie(movie) {
   try {
