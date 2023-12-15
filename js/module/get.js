@@ -36,7 +36,6 @@ async function updateMovieStatus(id, watchedStatus) {
 //function for form
 const formSection = document.querySelector("#form");
 const movieSection = document.querySelector("#movieList");
-const confirmationSection = document.querySelector("#confirmation");
 
 function createMovieForm(document, docid, movie) {
   document.getElementById("listMovieButton").innerText = "See MovieList";

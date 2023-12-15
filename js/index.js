@@ -30,7 +30,7 @@ movieListButton.addEventListener("click", () => {
     getMovielist().then((movies) => {
       movies.forEach((doc) => {
         const movie = doc.data();
-        console.log ("docid="+ doc.id);
+        console.log("docid=" + doc.id);
         // console.log('title=' + movie.title);
         createMovieForm(document, doc.id, movie);
       });
