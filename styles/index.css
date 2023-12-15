@@ -432,3 +432,17 @@ label {
     background-color: black;
     color: white;
 }
+#addMoviesButton:hover,
+#listMovieButton:hover{
+    background-color: blue;
+}
+.btn{
+    height: 40px;
+    font-style: italic;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+}
+.btn:hover{
+    background-color: blue;
+}

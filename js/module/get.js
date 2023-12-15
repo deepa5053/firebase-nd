@@ -76,6 +76,8 @@ function createMovieForm(document, docid, movie) {
 
   const deleteButton = document.createElement("input");
   deleteButton.setAttribute("type", "button");
+  deleteButton.setAttribute("class", "btn");
+  
   deleteButton.setAttribute("docid", docid);
   deleteButton.value = "Delete";
 
@@ -91,6 +93,7 @@ function createMovieForm(document, docid, movie) {
   // Watched status button
   const watchedButton = document.createElement("input");
   watchedButton.setAttribute("type", "button");
+  watchedButton.setAttribute("class", "btn");
   watchedButton.setAttribute("docid", docid);
   if (movie.watched == true) watchedButton.value = "Watched ";
   else watchedButton.value = "Not Watched ";
