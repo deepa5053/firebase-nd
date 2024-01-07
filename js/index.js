@@ -16,7 +16,7 @@ addMoviesButton.addEventListener("click", () => {
       document.querySelector("#title").value = "";
       document.querySelector("#genre").value = "";
       document.querySelector("#releaseDate").value = "";
-      alert('Movie added successfully');
+      
     });
   } catch (error) {
     console.log(`ERROR: ${error}`);
