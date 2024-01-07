@@ -43,7 +43,7 @@ function createMovieForm(document, docid, movie) {
   movieSection.style.display = "none";
   const formElem = document.createElement("form");
   formElem.setAttribute("id", "movieForm");
-
+formElem.setAttribute("class", "displayMovie");
   // input elements for form
 
   const titleElem = document.createElement("input");

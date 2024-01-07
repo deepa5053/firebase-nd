@@ -28,6 +28,12 @@ addMoviesButton.addEventListener("click", () => {
 const movieListButton = document.querySelector("#listMovieButton");
 movieListButton.addEventListener("click", () => {
   try {
+    // clear the existing element
+    const movieItems = document.querySelectorAll(".displayMovie");
+
+    movieItems.forEach((movieItem) => {
+      movieItem.remove();
+});
     getMovielist().then((movies) => {
       movies.forEach((doc) => {
         const movie = doc.data();
